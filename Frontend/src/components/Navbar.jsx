@@ -1,5 +1,6 @@
 import { FaSearch } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function Navbar({
   searchTerm = "",
@@ -8,11 +9,11 @@ function Navbar({
   const token = localStorage.getItem("access");
 
   console.log("TOKEN:", token);
-
+  const navigate = useNavigate();
   const handleLogout = () => {
     localStorage.removeItem("access");
     localStorage.removeItem("refresh");
-    window.location.href = "/login";
+    navigate("/login");
   };
 
   return (
