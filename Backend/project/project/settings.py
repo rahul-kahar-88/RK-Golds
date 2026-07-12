@@ -70,7 +70,7 @@ cloudinary.config(
     api_secret=CLOUDINARY_STORAGE['API_SECRET'],
 )
 
-STATIC_URL = "static/"
+
 STATIC_ROOT = BASE_DIR / "staticfiles"
 STORAGES = {
     "default": {
@@ -201,9 +201,9 @@ REST_FRAMEWORK = {
 
 
 CORS_ALLOWED_ORIGINS = [
-    "https://rk-golds.vercel.app/",
+    "https://rk-golds.vercel.app",
 ]
 
 CSRF_TRUSTED_ORIGINS = [
-    "https://rk-golds.vercel.app/",
+    "https://rk-golds.vercel.app",
 ]
