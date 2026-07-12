@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 from pathlib import Path
 import cloudinary
 import os
+import dj_database_url
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -28,9 +29,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.getenv("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.getenv("DEBUG", "False") == "True"
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    "127.0.0.1",
+    "localhost",
+    ".onrender.com",
+]
 
 RAZORPAY_KEY_ID = "rzp_test_T3XNYATa1VT7XA"
 RAZORPAY_KEY_SECRET = os.getenv("RAZORPAY_KEY_SECRET")
@@ -65,12 +70,14 @@ cloudinary.config(
     api_secret=CLOUDINARY_STORAGE['API_SECRET'],
 )
 
+STATIC_URL = "static/"
+STATIC_ROOT = BASE_DIR / "staticfiles"
 STORAGES = {
     "default": {
         "BACKEND": "cloudinary_storage.storage.MediaCloudinaryStorage",
     },
     "staticfiles": {
-        "BACKEND": "django.contrib.staticfiles.storage.StaticFilesStorage",
+        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
     },
 }
 
@@ -80,8 +87,8 @@ MEDIA_URL = "/media/"
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
-
     'django.middleware.security.SecurityMiddleware',
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -113,17 +120,23 @@ WSGI_APPLICATION = 'project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'RK_Gold',
-        'USER': 'postgres',
-        'PASSWORD': os.getenv("DATABASE_PASSWORD"),
-        'HOST': 'localhost',
-        'PORT': '5432',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'RK_Gold',
+#         'USER': 'postgres',
+#         'PASSWORD': os.getenv("DATABASE_PASSWORD"),
+#         'HOST': 'localhost',
+#         'PORT': '5432',
+#     }
+# }
 
+
+DATABASES = {
+    "default": dj_database_url.config(
+        default=f"postgresql://postgres:{os.getenv('DATABASE_PASSWORD')}@localhost:5432/RK_Gold"
+    )
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/6.0/ref/settings/#auth-password-validators
@@ -167,7 +180,7 @@ from datetime import timedelta
 
 SIMPLE_JWT = {
 
-    "ACCESS_TOKEN_LIFETIME": timedelta(hours=5),
+    "ACCESS_TOKEN_LIFETIME": timedelta(hours=1),
 
     "REFRESH_TOKEN_LIFETIME": timedelta(days=1),
 
@@ -187,4 +200,10 @@ REST_FRAMEWORK = {
 }
 
 
-CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOWED_ORIGINS = [
+    "https://rk-golds.vercel.app/",
+]
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://rk-golds.vercel.app/",
+]
