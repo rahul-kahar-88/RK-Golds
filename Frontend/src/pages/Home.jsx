@@ -114,9 +114,9 @@ return (
         <div
           key={category.id}
           onClick={() => setSelectedCategory(category.id)}
-          className="cursor-pointer bg-white shadow-md rounded-xl p-6 text-center hover:shadow-xl hover:-translate-y-1 transition"
+          className="cursor-pointer bg-white shadow-md rounded-xl text-center hover:shadow-xl hover:-translate-y-1 transition"
         >
-          <h3 className="font-semibold">
+          <h3 className=" ">
             {category.name}
           </h3>
         </div>
