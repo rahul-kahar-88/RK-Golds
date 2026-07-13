@@ -94,7 +94,7 @@ return (
   </section>
 
   {/* Categories */}
-  <section className="max-w-7xl mx-auto py-16 px-6">
+  <section className="max-w-7xl mx-auto pt-16 pb-8 px-6">
     <h2 className="text-3xl font-bold text-center mb-10">
       Shop By Category
     </h2>
@@ -126,7 +126,7 @@ return (
   </section>
 
   {/* Products Section */}
-  <section className="max-w-7xl mx-auto py-16 px-6">
+ <section className="max-w-7xl mx-auto pt-8 pb-16 px-6">
 
     <h2 className="text-3xl font-bold text-center mb-10">
       Latest Products
