@@ -11,23 +11,19 @@ function ProductCard({ product }) {
         <img
           src={product.image}
           alt={product.name}
-          className="w-full h-52 object-cover"
+          className="w-full h-40 md:h-52 object-cover"
         />
 
-        <div className="p-4">
-          <h2 className="font-bold text-lg">
+        <div className="p-3 md:p-4">
+          <h2 className="font-bold text-sm md:text-lg line-clamp-2">
             {product.name}
           </h2>
 
-          <p className="text-gray-500">
-            {product.description}
-          </p>
-
-          <p className="text-yellow-600 font-bold text-xl">
+          <p className="text-yellow-600 font-bold text-base md:text-xl mt-2">
             ₹{product.price}
           </p>
 
-          <button className="w-full mt-4 bg-black text-white py-2 rounded-lg">
+          <button className="w-full mt-3 bg-black text-white py-2 rounded-lg text-sm md:text-base">
             View Product
           </button>
         </div>
