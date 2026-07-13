@@ -2,6 +2,7 @@ import { FaSearch } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
+
 function Navbar({
   searchTerm = "",
   setSearchTerm = () => {},
@@ -103,50 +104,51 @@ function Navbar({
         </div>
 
         {/* Categories */}
-        <nav className="border-t">
-          <div className="max-w-7xl mx-auto flex flex-wrap justify-center gap-10 py-3 px-4 font-medium text-sm">
-            <span>All Jewellery</span>
-            <button
-              onClick={()=>
-              window.location.href="/products?category=1"
-              }
-              >
-              Gold
-            </button>
-            <button
-              onClick={()=>
-              window.location.href="/products?category=2"
-              }
-              >
-              Diamond
-            </button>
-            <button
-              onClick={()=>
-              window.location.href="/products?category=3"
-              }
-              >
-              Earrings
-            </button>
-            <button
-              onClick={()=>
-              window.location.href="/products?category=4"
-              }
-              >
-              Rings
-            </button>
-            <button
-              onClick={()=>
-              window.location.href="/products?category=5"
-              }
-              >
-              Gemstone
-            </button>
-            <button>
-              More
-            </button>
-          </div>
-        </nav>
+          <nav className="border-t">
+            <div className="max-w-7xl mx-auto flex flex-wrap justify-center gap-10 py-3 px-4 font-medium text-sm">
 
+              <button
+                onClick={() => navigate("/products")}
+              >
+                All Jewellery
+              </button>
+
+              <button
+                onClick={() => navigate("/products?category=1")}
+              >
+                Gold
+              </button>
+
+              <button
+                onClick={() => navigate("/products?category=2")}
+              >
+                Diamond
+              </button>
+
+              <button
+                onClick={() => navigate("/products?category=3")}
+              >
+                Earrings
+              </button>
+
+              <button
+                onClick={() => navigate("/products?category=4")}
+              >
+                Rings
+              </button>
+
+              <button
+                onClick={() => navigate("/products?category=5")}
+              >
+                Gemstone
+              </button>
+
+              <button>
+                More
+              </button>
+
+            </div>
+          </nav>
       </header>
     </>
   );
