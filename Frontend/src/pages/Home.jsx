@@ -99,13 +99,13 @@ return (
       Shop By Category
     </h2>
 
-    <div className="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-4">
+    <div className="grid grid-cols-4 md:grid-cols-4 lg:grid-cols-6 gap-3">
 
       <div
         onClick={() => setSelectedCategory("")}
-        className="cursor-pointer bg-yellow-500 text-white shadow-md rounded-xl p-6 text-center hover:scale-105 transition"
+        className="cursor-pointer bg-yellow-500 text-white shadow-md rounded-xl p-2 md:p-6 text-center hover:scale-105 transition"
       >
-        <h3 className="font-semibold">
+        <h3 className="text-xs md:text-base font-semibold">
           All
         </h3>
       </div>
@@ -114,11 +114,11 @@ return (
         <div
           key={category.id}
           onClick={() => setSelectedCategory(category.id)}
-          className="cursor-pointer bg-white shadow-md rounded-xl p-1 text-center hover:shadow-xl hover:-translate-y-1 transition"
+          className="cursor-pointer bg-white shadow-md rounded-xl p-2 md:p-6 text-center hover:shadow-xl hover:-translate-y-1 transition"
         >
-          <h3 className="">
+         <h3 className="text-xs md:text-base font-semibold">
             {category.name}
-          </h3>
+         </h3>
         </div>
       ))}
 
