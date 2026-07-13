@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import API from "../services/api";
+import { useNavigate } from "react-router-dom";
 
 function Cart() {
   const [cartItems, setCartItems] = useState([]);
@@ -9,7 +10,7 @@ function Cart() {
 
   const [phone, setPhone] = useState("");
   const [address, setAddress] = useState("");
-
+  const navigate = useNavigate();
   const token = localStorage.getItem("access");
 
   useEffect(() => {
@@ -150,7 +151,7 @@ function Cart() {
 
             fetchCartItems();
 
-            window.location.href = "/orders";
+            navigate("/orders");
           } catch (error) {
             console.log("VERIFY ERROR", error.response?.data);
 
