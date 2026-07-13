@@ -23,9 +23,7 @@ function ProductCard({ product }) {
             ₹{product.price}
           </p>
 
-          {/* <button className="w-full mt-3 bg-black text-white py-2 rounded-lg text-sm md:text-base">
-            View Product
-          </button> */}
+          
         </div>
       </motion.div>
     </Link>
