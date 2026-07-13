@@ -15,7 +15,7 @@ function ProductCard({ product }) {
         />
 
         <div className="p-3 md:p-4">
-          <h2 className="text-sm md:text-lg line-clamp-2">
+          <h2 className="text-sm md:text-lg line-clamp-1">
             {product.name}
           </h2>
 
