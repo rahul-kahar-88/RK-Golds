@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import API from "../services/api";
+import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
 function Login() {
@@ -120,6 +120,12 @@ function Login() {
         >
           Login
         </button>
+        <p className="text-center mt-4 text-gray-600">
+          Don't have an account?{" "}
+          <Link to="/register" className="text-yellow-600 font-semibold hover:underline"  >
+            Register
+          </Link>
+        </p>
       </form>
     </div>
   );
