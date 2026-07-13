@@ -15,11 +15,11 @@ function ProductCard({ product }) {
         />
 
         <div className="p-3 md:p-4">
-          <h2 className="font-bold text-sm md:text-lg line-clamp-2">
+          <h2 className="font-semibold text-sm md:text-lg line-clamp-2">
             {product.name}
           </h2>
 
-          <p className="text-yellow-600 font-bold text-base md:text-xl mt-2">
+          <p className="text-yellow-600 font-semibold text-base md:text-xl mt-2">
             ₹{product.price}
           </p>
 
